@@ -11,8 +11,8 @@ import itertools
 import logging
 from threading import Thread
 
-from artiq.protocols.pc_rpc import simple_server_loop
-from artiq.tools import init_logger
+from sipyco.pc_rpc import simple_server_loop
+from sipyco.common_args import init_logger_from_args
 
 from mjolnir.frontend.server import get_argparser, run_server
 from mjolnir.test.image_test import generate_image
@@ -114,7 +114,7 @@ class DummyCamera:
 
 def main():
     args = get_argparser().parse_args()
-    init_logger(args)
+    init_logger_from_args(args)
 
     dev = DummyCamera()
     run_server(dev, args)

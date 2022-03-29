@@ -4,14 +4,14 @@ from setuptools import setup, find_packages
 import sys
 
 
-if (sys.version_info[:3] < (3, 5, 3)) or (sys.version_info[:3] > (3, 7, 7)):
-    raise Exception("You need Python 3.5.3 - 3.7.7")
+#if (sys.version_info[:3] < (3, 5, 3)) or (sys.version_info[:3] > (3, 7, 7)):
+#    raise Exception("You need Python 3.5.3 - 3.7.7")
 
 
 requirements = [
     'numpy',
     'scipy',
-    'zmq',
+    'pyzmq',
     'pyqt5',
     'pyqtgraph',
     'quamash'
