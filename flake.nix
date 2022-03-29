@@ -28,6 +28,7 @@
          pname = "mjolnir";
          version = "0.2";
          src = self;
+         nativeBuildInputs = [ pkgs.qt5.wrapQtAppsHook ];
          propagatedBuildInputs = with pkgs.python3Packages; [ 
             numpy
             scipy
@@ -38,6 +39,10 @@
             sipyco.packages.x86_64-linux.sipyco
             thorlabs-tsi-sdk.packages.x86_64-linux.thorlabs-tsi
          ];
+         dontWrapQtApps = true;
+         postFixup = ''
+            wrapQtApp "$out/bin/mjolnir_gui"
+         '';
       };
 
       devShell.x86_64-linux = pkgs.mkShell {
