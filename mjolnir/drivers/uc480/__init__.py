@@ -156,7 +156,7 @@ class uc480:
 
         if library is None:
             if _linux:
-                self._lib = ctypes.cdll.LoadLibrary("libueye_api.so")
+                self._lib = ctypes.cdll.LoadLibrary("/usr/lib/libueye_api.so")
             else:
                 if (platform.architecture()[0] == "32bit"):
                     self._lib = ctypes.cdll.LoadLibrary("uc480.dll")

@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1648203577,
-        "narHash": "sha256-CbXZkiVTA0ByV/yncFHCAGIa/AfcSb0cjqzEa56rO+Y=",
+        "lastModified": 1648553562,
+        "narHash": "sha256-xQhRKu6h0phd56oCzGjkhHkY4eDI1XKedGqkFtlXapk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d89f18a17e51532ed5f4d45297b0ddf11e46b9c8",
+        "rev": "9b168e5e62406fa2e55e132f390379a6ba22b402",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1648556886,
-        "narHash": "sha256-VDzxJPRp18OAjVlH8doXKrfSuXxNewNWHVjsG1VRA1A=",
+        "lastModified": 1648658597,
+        "narHash": "sha256-MbcRttrZH5i20w+KlXxcmTU7TQErRCCha43JDPWYQyg=",
         "ref": "master",
-        "rev": "252153740990cf3c627f8a3e7f222809acfecab6",
-        "revCount": 1,
+        "rev": "3a988a0ef37adbcda87ab69edc1a243dc27870d0",
+        "revCount": 2,
         "type": "git",
         "url": "https://gitlab.com/aion-physics/code/artiq/drivers/thorlabs-tsi-sdk"
       },

@@ -3,6 +3,8 @@ import sys
 import numpy as np
 import logging
 from thorlabs_tsi_sdk.tl_camera import TLCameraSDK
+import distro
+_linux = distro.id() != ''
 
 logger = logging.getLogger(__name__)
 
@@ -32,19 +34,18 @@ class tsi:
         """Configure the system path to include the directory containing the dlls.
         """
         logger.debug("Configure system path..")
-        
         is_64bits = sys.maxsize > 2**32
-        
-        # change the value below to define dll system path
-        path_to_dlls = r"C:\Program Files\Thorlabs\Scientific Imaging\Scientific Camera Support"\
-                       r"\Scientific_Camera_Interfaces-Rev_G\Scientific Camera Interfaces\SDK"\
-                       r"\Native Compact Camera Toolkit\dlls"
 
-        if is_64bits:
-            path_to_dlls += r"\Native_64_lib"
+        if not _linux:
+            path_to_dlls = r"C:\Program Files\Thorlabs\Scientific Imaging\Scientific Camera Support"\
+                           r"\Scientific_Camera_Interfaces-Rev_G\Scientific Camera Interfaces\SDK"\
+                           r"\Native Compact Camera Toolkit\dlls"
+            if is_64bits:
+                path_to_dlls += r"\Native_64_lib"
+            else:
+                path_to_dlls += r"\Native_32_lib"
         else:
-            path_to_dlls += r"\Native_32_lib"
-
+            path_to_dlls = r"/usr/local/lib"
         os.environ['PATH'] = path_to_dlls + os.pathsep + os.environ['PATH']
 
         logger.info((path_to_dlls + " added to system path"))

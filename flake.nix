@@ -31,6 +31,7 @@
          nativeBuildInputs = [ pkgs.qt5.wrapQtAppsHook ];
          propagatedBuildInputs = with pkgs.python3Packages; [ 
             numpy
+            distro
             scipy
             packages.x86_64-linux.pyzmq
             pyqt5
@@ -47,9 +48,19 @@
 
       devShell.x86_64-linux = pkgs.mkShell {
          name = "mjolnir-dev-shell";
+         packages = [ 
+            pkgs.stdenv.cc.cc.lib 
+         ];
          buildInputs = [
+            pkgs.stdenv.cc.cc.lib
             (pkgs.python3.withPackages(ps: [ packages.x86_64-linux.mjolnir ]))
          ];
+         shellHook = ''
+            echo Entering mjolnir-dev-shell...
+            # fixes libstdc++ issues
+            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib/:${thorlabs-tsi-sdk}/lib
+            echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+         '';
       };
    };
 }

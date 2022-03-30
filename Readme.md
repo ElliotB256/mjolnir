@@ -56,6 +56,13 @@ The folder path is usually `C:\Program Files\Thorlabs\Scientific Imaging\Scienti
 
 **Note:** Do not specify the uc480 DLL path. As stated in the previous sub-section, c-types will find it.
 
+### Libstdc++.so.6
+
+My linux distribution didn't come with libstdc++6, so I needed to install it with
+```
+apt-get install lib32stdc++6
+```
+Frustratingly, the error reported by the program was that the Thorlabs library could not be loaded - probably the exception was being consumed and rethrown. No time to investigate now unfortunately.
 
 ## Usage
 
